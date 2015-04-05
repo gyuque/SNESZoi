@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>SNES bitmap generator</title>
+		<style type="text/css">
+h3 {background-color: #555; color: #eee; padding: 2px}
+
+#drop-area {
+	background-color: #aaa;
+	box-shadow: 0 1px 1px inset;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	text-align: center;
+}
+
+a {
+	color: #fff;
+	padding: 4px;
+	
+	border: 1px solid #261;
+	background: linear-gradient(to bottom, #5c4, #261);
+}
+		</style>
+		<script type="text/javascript" src="snessp.js"></script>
+	</head>
+	<body>
+		<h3>SNES bitmap generator</h3>
+		<p>
+			<label>Num of colors: <input type="text" id="in-colors"></label>
+		</p>
+		<div id="drop-area">Source image</div>
+		<canvas id="cv1"></canvas><hr>
+		<canvas id="cv-out"></canvas><hr>
+		<a id="pal-dl-link"></a> &nbsp;<a id="dl-link"></a>
+	</body>
+</html>
