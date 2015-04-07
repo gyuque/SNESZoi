@@ -363,40 +363,17 @@ mainloop_start:
 	phx
 	php
 
+	jsr mainUpdate
+
+
 	sep	#$20
 .a8    
-
-	; * Only one waiting causes chattering.
-	;   I wait three times and got good result...
-	;   Does anyone know better way?
-	; S.Ueyama
 
 	; Wait Joypad
 	padwait:
 		lda $4212
 		and #$01
 		bne padwait
-
-	lda $4212
-	ora #$01
-	sta $4212
-
-	; Wait Joypad
-	padwait2:
-		lda $4212
-		and #$01
-		bne padwait2
-
-	lda $4212
-	ora #$01
-	sta $4212
-
-	; Wait Joypad
-	padwait3:
-		lda $4212
-		and #$01
-		bne padwait3
-
 
 	rep	#$20
 .a16
@@ -405,7 +382,7 @@ mainloop_start:
 	tay
 
 	; * I put filter routine here to suppress input chattering.
-	;   However, this may not be needed after I wrote (ugly) "3-time-waiting" above.
+	;   However, this may not be needed anymore.
 
 	; X <- pad input
 	jsr updatePadInputCount
@@ -424,7 +401,6 @@ mainloop_start:
 
 	notrig:
 
-	jsr mainUpdate
 
 	; Show screen with full brightness
 	ldx #$0f
